@@ -26,7 +26,7 @@ class EmployeesController(private val service: EmployeeService, private val env:
     fun  save(@RequestBody employee: Employee): ResponseEntity<Employee> = ResponseEntity.ok(service.save(employee))
 
     @DeleteMapping("/{id}")
-    fun delete(@PathVariable id: Long): ResponseEntity<Unit> {
+    fun delete(@PathVariable id: Long): ResponseEntity<Employee> {
         service.delete(id)
         return  ResponseEntity.noContent().build()
     }
